@@ -4,4 +4,4 @@ import UIKit
 
 var str = "Hello, playground"
 
-//Diego Coment//
+//Diego Coment
