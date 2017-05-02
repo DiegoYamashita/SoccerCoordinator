@@ -1,141 +1,109 @@
 //: Playground - noun: a place where people can play
 import UIKit
 
-//PART - 1 Creating Array and Dictionaries for Players
+//PART - 1.1 Creating players information Dictionaries
+let player1: [String : Any] = [ "name": "Joe Smith", "height": 42, "experience": true, "guardians": "Jim and Jan Smith"]
+let player2: [String : Any] = [ "name": "Jill Tanner", "height": 36, "experience": true, "guardians": "Clara Tanner"]
+let player3: [String : Any] = [ "name": "Bill Bon", "height": 43, "experience": true, "guardians": "Sara and Jenny Bon"]
+let player4: [String : Any] = [ "name": "Eva Gordon", "height": 45, "experience": false, "guardians": "Wendy and Mike Gordon"]
+let player5: [String : Any] = [ "name": "Matt Gill", "height": 40, "experience": false, "guardians": "Charles and Silva Gill"]
+let player6: [String : Any] = [ "name": "Kimmy Stein", "height": 41, "experience": false, "guardians": "Bill and Hillary Stein"]
+let player7: [String : Any] = [ "name": "Sammy Adams", "height": 45, "experience": false, "guardians": "Jeff Adams"]
+let player8: [String : Any] = [ "name": "Karl Saygan", "height": 42, "experience": true, "guardians": "Heather Bledsome"]
+let player9: [String : Any] = [ "name": "Suzane Greenberg", "height": 44, "experience": true, "guardians": "Henrietta Dumas"]
+let player10: [String : Any] = [ "name": "Sal Dali", "height": 41, "experience": false, "guardians": "Gala Dali"]
+let player11: [String : Any] = [ "name": "Joe Kavalier", "height": 39, "experience": false, "guardians": "Sam and Elaine Kavalier"]
+let player12: [String : Any] = [ "name": "Ben Finkelstein", "height": 44, "experience": false, "guardians": "Aaron and Jill Finkelstein"]
+let player13: [String : Any] = [ "name": "Diego Soto", "height": 41, "experience": true, "guardians": "Robin and Sarika Soto"]
+let player14: [String : Any] = [ "name": "Chloe Alaska", "height": 47, "experience": false, "guardians": "David and Jamie Alaska"]
+let player15: [String : Any] = [ "name": "Arnold Willis", "height": 43, "experience": false, "guardians": "Claire Willis"]
+let player16: [String : Any] = [ "name": "Phillip Helm", "height": 44, "experience": true, "guardians": "Thomas Helm and Eva Iones"]
+let player17: [String : Any] = [ "name": "Les Clay", "height": 42, "experience": true, "guardians": "Wynonna Brown"]
+let player18: [String : Any] = [ "name": "Herschel Krustofski", "height": 45, "experience": true, "guardians": "Hyman and Rachel Krustofski"]
 
-var players: [String] = ["Joe Smith", "Jill Tanner", "Bill Bon", "Eva Gordon", "Matt Gill", "Kimmy Stein", "Sammy Adams", "Karl Saygan", "Suzane Greenberg", "Sal Dali", "Joe Kavalier", "Ben Finkelstein", "Diego Soto", "Chloe Alaska", "Arnold Willis", "Phillip Helm", "Les Clay", "Herschel Krustofski"]
+//PART - 1.2 Creating array for contain players info
+let players: [[String: Any]] = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17, player18]
 
-var soccerExperience: [String: Bool] = ["Joe Smith": true, "Jill Tanner": true, "Bill Bon": true, "Eva Gordon": false, "Matt Gill": false, "Kimmy Stein": false, "Sammy Adams": false, "Karl Saygan": true, "Suzane Greenberg": true, "Sal Dali": false, "Joe Kavalier": false, "Ben Finkelstein": false, "Diego Soto": true, "Chloe Alaska": false, "Arnold Willis": false, "Phillip Helm": true, "Les Clay": true, "Herschel Krustofski": true]
+//PART - 2 Creting Dictionary for the soccer teams
+var teamSharks: [[String:Any]] = []
+var teamDragons: [[String:Any]] = []
+var teamRaptors: [[String:Any]] = []
 
-var playersHeight: [String: Int] = ["Joe Smith": 42, "Jill Tanner": 36, "Bill Bon": 43, "Eva Gordon": 45, "Matt Gill": 40, "Kimmy Stein": 41, "Sammy Adams": 45, "Karl Saygan": 42, "Suzane Greenberg": 44, "Sal Dali": 41, "Joe Kavalier": 39, "Ben Finkelstein": 44, "Diego Soto": 41, "Chloe Alaska": 47, "Arnold Willis": 43, "Phillip Helm": 44, "Les Clay": 42, "Herschel Krustofski": 45]
+//PART - 3.1 Creating Dictionary for soccer experience
+var hasSoccerExperience: [[String:Any]] = []
+var noSoccerExperience: [[String:Any]] = []
 
-var guardianNames: [String: String] = ["Joe Smith": "Jim and Jan Smith", "Jill Tanner": "Clara Tanner", "Bill Bon": "Sara and Jenny Bon", "Eva Gordon": "Wendy and Mike Gordon", "Matt Gill": "Charles and Silva Gill", "Kimmy Stein": "Bill and Hillary Stein", "Sammy Adams": "Jeff Adams", "Karl Saygan": "Heather Bledsome", "Suzane Greenberg": "Henrietta Dumas", "Sal Dali": "Gala Dali", "Joe Kavalier": "Sam and Elaine Kavalier", "Ben Finkelstein": "Aaron and Jill Finkelstein", "Diego Soto": "Robin and Sarika Soto", "Chloe Alaska": "David and Jamie Alaska", "Arnold Willis": "Claire Willis", "Phillip Helm": "Thomas Helm and Eva Iones", "Les Clay": "Wynonna Brown", "Herschel Krustofski": "Hyman and Rachel Krustofski"]
+//PART - 3.2 Separating players based on experience and no experience
+for playersInfo in players {
+    if (playersInfo["experience"] as! Bool){
+        hasSoccerExperience.append(playersInfo);
+    }else{
+        noSoccerExperience.append(playersInfo);
+    }
+}
 
-//PART - 2 Creting Arrays for the soccer teams
-var teamSharks: [String] = []
-var teamDragons: [String] = []
-var teamRaptors: [String] = []
+//PART - 3.3 Sorting players based on height
 
-//PART - 3.1 Creating Arrays for soccer experience
-var hasSoccerExperience: [String] = []
-var noSoccerExperience: [String] = []
+var hasSoccerExperienceSorted = hasSoccerExperience.sorted{$1["height"] as! Int > $0["height"] as! Int}
+var noSoccerExperienceSorted = noSoccerExperience.sorted{$0["height"] as! Int > $1["height"] as! Int}
 
-//PART - 3.2 Separating playes that has experience and no experience
-for(playerName, experience) in soccerExperience {
-    if (experience == true){
-        hasSoccerExperience.append(playerName);
+//For Debug
+//for debug in hasSoccerExperienceSorted { print(debug) }
+//for debug in noSoccerExperienceSorted { print(debug) }
+
+//PART - 3.4 Making Teams
+//First making teams only with soccer experienced playes
+for player in hasSoccerExperienceSorted {
+    if(teamSharks.count <= teamRaptors.count && teamSharks.count <= teamDragons.count){
+        teamSharks.append(player)
+    } else if(teamDragons.count <= teamRaptors.count){
+        teamDragons.append(player)
     } else {
-        noSoccerExperience.append(playerName);
+        teamRaptors.append(player)
+    }
+}
+
+//Then making teams with left players
+for player in noSoccerExperienceSorted {
+    if(teamSharks.count <= teamRaptors.count && teamSharks.count <= teamDragons.count){
+        teamSharks.append(player)
+    } else if(teamDragons.count <= teamRaptors.count){
+        teamDragons.append(player)
+    } else {
+        teamRaptors.append(player)
     }
 }
 
 //For Debug
-/*print(hasSoccerExperience)
-print(noSoccerExperience)*/
+/*print("-----------------------------Team Sharks--------------------------------------------------------")
+for teamSharksPlayer in teamSharks { print(teamSharksPlayer) }
+print("----------------------------Team Dragons---------------------------------------------------------")
+for teamDragonsPlayer in teamDragons { print(teamDragonsPlayer) }
+print("-----------------------------Team Raptors--------------------------------------------------------")
+for teamRaptorsPlayer in teamRaptors { print(teamRaptorsPlayer) }*/
 
-//PART - 3.3 Creating Varibles to use in the height aaverage process
-var teamsAverageHeightLimit: Double = 1.5
-var teamsAverageHeightChecker: Bool = false
+//PART - 4 Output custom messages for each player and average height of each team
 
-var teamSharkAverageHeight: Double = 0.0
-var teamDragonsAverageHeight: Double = 0.0
-var teamRaptorsAverageHeight: Double = 0.0
+var teamSharksHeightTotal: Double = 0.0
+var teamDragonsHeightTotal: Double = 0.0
+var teamRaptorsHeightTotal: Double = 0.0
 
-//PART - 3.4 Creating functions of average calculation, average comparison and arrayShuffle
-
-//Just culculate the average height of team based on Teams array.Getting height value by player name
-func calcTeamAverageHeight (teamName: [String]) -> Double{
-    var teamAverageHeight: Double = 0.0
-    
-    for playerName in teamName{
-        teamAverageHeight += Double(playersHeight[playerName]!)
-    }
-    teamAverageHeight = teamAverageHeight / Double(teamName.count)
-    
-    return teamAverageHeight
+print("----------------------------Team Sharks----------------------------------------------------------")
+for teamSharksPlayer in teamSharks{
+    print("To: \(teamSharksPlayer["guardians"]!), Your child \(teamSharksPlayer["name"]!) from Team Sharks will attend their first team practice on March 17, 3pm")
+    teamSharksHeightTotal += Double(teamSharksPlayer["height"] as! Int)
 }
-
-//Compare the average height in range of average < 1.5 and average > -1.5
-func compareAverageHeight (averageHeight: Double, averageHeight2: Double) -> Bool{
-    if(averageHeight - averageHeight2 <= teamsAverageHeightLimit && averageHeight - averageHeight2 >= -teamsAverageHeightLimit){
-        return true
-    }
-    return false
+print("----------------------------Team Dragons---------------------------------------------------------")
+for teamDragonsPlayer in teamDragons{
+    print("To: \(teamDragonsPlayer["guardians"]!), Your child \(teamDragonsPlayer["name"]!) from Team Dragons will attend their first team practice on March 17, 1pm")
+    teamDragonsHeightTotal += Double(teamDragonsPlayer["height"] as! Int)
 }
-
-//Extension for Array for do shuffle
-extension Array {
-    mutating func shuffle () {
-        for i in (0..<self.count).reversed() {
-            let ix1 = i
-            let ix2 = Int(arc4random_uniform(UInt32(i+1)))
-            (self[ix1], self[ix2]) = (self[ix2], self[ix1])
-        }
-    }
+print("-----------------------------Team Raptors--------------------------------------------------------")
+for teamRaptorsPlayer in teamRaptors{
+    print("To: \(teamRaptorsPlayer["guardians"]!), Your child \(teamRaptorsPlayer["name"]!) from Team Raptors will attend their first team practice on March 18, 1pm")
+    teamRaptorsHeightTotal += Double(teamRaptorsPlayer["height"] as! Int)
 }
-
-//PART - 3.5 Logic for making team based on experience and height
-while(teamsAverageHeightChecker != true){
-    //First making teams only with soccer experienced playes
-    for (index, playerName) in hasSoccerExperience.enumerated() {
-        if(teamSharks.count < teamRaptors.count && teamSharks.count < teamDragons.count){
-            teamSharks.append(playerName)
-        } else if(teamDragons.count < teamRaptors.count){
-            teamDragons.append(playerName)
-        } else {
-            teamRaptors.append(playerName)
-        }
-    }
-    
-    //Then making teams with left players
-    for (index, playerName) in noSoccerExperience.enumerated() {
-        if(teamSharks.count < teamRaptors.count && teamSharks.count < teamDragons.count){
-            teamSharks.append(playerName)
-        } else if(teamDragons.count < teamRaptors.count){
-            teamDragons.append(playerName)
-        } else {
-            teamRaptors.append(playerName)
-        }
-    }
-    
-    //Calculate average for each team
-    teamSharkAverageHeight = calcTeamAverageHeight(teamName: teamSharks)
-    teamDragonsAverageHeight = calcTeamAverageHeight(teamName: teamDragons)
-    teamRaptorsAverageHeight = calcTeamAverageHeight(teamName: teamRaptors)
-
-    //If average range is in 1.5 between teams get out loop, if not shuffle array to make new team again until hit range of 1.5
-    if  compareAverageHeight(averageHeight: teamSharkAverageHeight, averageHeight2: teamDragonsAverageHeight) &&
-        compareAverageHeight(averageHeight: teamSharkAverageHeight, averageHeight2: teamRaptorsAverageHeight) &&
-        compareAverageHeight(averageHeight: teamRaptorsAverageHeight, averageHeight2: teamDragonsAverageHeight) {
-        
-        teamsAverageHeightChecker = true
-        
-    } else {
-        hasSoccerExperience.shuffle()
-        noSoccerExperience.shuffle()
-        teamsAverageHeightChecker = false
-    }
-}
-
-print("Team Sharks Average Height: \(teamSharkAverageHeight)")
-print("Team Dragons Average Height: \(teamDragonsAverageHeight)")
-print("Team Raptors Average Height: \(teamRaptorsAverageHeight)")
-
-//For Debug
-/*print(teamSharks)
-print(teamDragons)
-print(teamRaptors)*/
-
-for playerName in teamSharks{
-    print("To: \(guardianNames[playerName]!), Your child \(playerName) from Team Sharks will attend their first team practice on March 17, 3pm")
-}
-
-for playerName in teamDragons{
-    print("To: \(guardianNames[playerName]!), Your child \(playerName) from Team Dragons will attend their first team practice on March 17, 1pm")
-}
-
-for playerName in teamRaptors{
-    print("To: \(guardianNames[playerName]!), Your child \(playerName) from Team Raptors will attend their first team practice on March 18, 1pm")
-}
-
-
+print("-----------------------------Average Height------------------------------------------------------")
+print("Team Sharks = \(teamSharksHeightTotal / Double(teamSharks.count))")
+print("Team Dragons = \(teamDragonsHeightTotal / Double(teamDragons.count))")
+print("Team Raptors = \(teamRaptorsHeightTotal / Double(teamRaptors.count))")
